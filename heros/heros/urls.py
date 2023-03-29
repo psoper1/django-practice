@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('current_time/', views.current_datetime),
     path('all_heroes/', views.all_heroes),
+    path('json/', views.json, name='json'),
+    # path('abilities-json/', views.ability_json, name='ability_json'),
 ]
