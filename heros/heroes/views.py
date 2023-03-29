@@ -11,11 +11,15 @@ def current_datetime(request):
     return HttpResponse(html)
 
 def all_heroes(request):
-    a_hero = Hero.objects.values_list('name', 'about_me')
+    a_hero = Hero.objects.values_list('name', 'about_me', 'biography', 'abilities')
     print(a_hero)
     html = ''
     for name in a_hero:
-        html += '<h1>Hero: %s <p>About: %s</p></h1>' % name
+        html += '''<h1>Hero: %s 
+                        <p>About: %s</p>
+                            <p> Bio: %s</p>
+                                <p> Abilities: %s</p>
+                    </h1>''' % name
     return HttpResponse(html)
 
 def json(request):
