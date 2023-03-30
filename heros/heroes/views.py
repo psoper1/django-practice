@@ -21,7 +21,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-# Create your views here.
+
 class HeroViewSet(viewsets.ModelViewSet):
     queryset = Hero.objects.all()
     serializer_class = HeroSerializer
@@ -46,7 +46,3 @@ def all_heroes(request):
 def json(request):
     data = list(Hero.objects.values())
     return JsonResponse(data, safe=False)
-
-# def ability_json(request):
-#     data = list(Ability.objects.value())
-#     return JsonResponse(data, safe=False)

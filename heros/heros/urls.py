@@ -30,8 +30,7 @@ urlpatterns = [
     path('all_heroes/', views.all_heroes),
     path('json/', views.json, name='json'),
     path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-    # path('abilities-json/', views.ability_json, name='ability_json'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
 
