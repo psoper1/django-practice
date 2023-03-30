@@ -15,16 +15,13 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
 
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
-
 class HeroViewSet(viewsets.ModelViewSet):
     queryset = Hero.objects.all()
     serializer_class = HeroSerializer
+
+class AbilityViewSet(viewsets.ModelViewSet):
+    queryset = Ability.objects.all()
+    serializer_class = AbilitySerializer
 
 def current_datetime(request):
     now = datetime.datetime.now()
