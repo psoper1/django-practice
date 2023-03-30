@@ -3,7 +3,28 @@ import datetime
 from django.http import HttpResponse, JsonResponse
 import json
 from heroes.models import Hero, Ability
+from django.contrib.auth.models import User, Group
+from rest_framework import viewsets, permissions
+from heroes.serializers import *
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = User.objects.all().order_by('-date_joined')
+    serializer_class = UserSerializer
+
+class GroupViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
 # Create your views here.
+class HeroViewSet(viewsets.ModelViewSet):
+    queryset = Hero.objects.all()
+    serializer_class = HeroSerializer
 
 def current_datetime(request):
     now = datetime.datetime.now()
