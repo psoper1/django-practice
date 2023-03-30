@@ -18,3 +18,4 @@ class HeroSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hero
         fields = ['name', 'about_me', 'biography', 'abilities']
+        depth = 1
